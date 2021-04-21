@@ -49,13 +49,14 @@ function myKeyDown(e) {
     if (e.shiftKey == true && keyPress == "80") {
 
         console.log("shift and p pressed")
-
+        if ( block_width <=140 && block_height <= 140){
         block_width = block_width + 10;
         block_height = block_height + 10;
 
         document.getElementById("currentWidth").innerHTML = block_width;
         document.getElementById("currentHeight").innerHTML = block_height;
     }
+}
 
     if (e.shiftKey == true && keyPress == "77") {
         if (block_width > 0 && block_height > 0) {
@@ -152,8 +153,50 @@ function myKeyDown(e) {
 
      update_blocks(left_hand);
     }
+
+
+    if(keyPress=="87"){
+        console.log("w");
+     update_blocks("white.jpg");
+    }
     
 
+}
+
+function right(){
+    if(player_x <= 850){
+        player_x = player_x + block_width;
+        
+        canvas.remove(player_object);
+   update_player();
+    }
+}
+
+function left(){
+    if(player_x >= 10){
+        player_x = player_x - block_width;
+        
+        canvas.remove(player_object);
+   update_player();
+    }
+}
+
+function up(){
+    if(player_y >= 20){
+        player_y = player_y - block_height;
+        
+        canvas.remove(player_object);
+   update_player();
+    }
+}
+
+function down(){
+    if(player_y <= 450){
+        player_y = player_y + block_height;
+        
+        canvas.remove(player_object);
+   update_player();
+    }
 }
 
 
